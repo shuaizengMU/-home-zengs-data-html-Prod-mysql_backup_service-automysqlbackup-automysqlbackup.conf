@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db_backup:
+    privileged: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: "mysql-backup-service"
+    restart: always
+    tty: true
+    working_dir: /etc/automysqlbackup/ 
+    volumes:
+      - ./db:/var/backup/db
+      - ./log:/etc/automysqlbackup/log
+    networks:
+      - default
+      - kbc-net
+
+networks:
+  kbc-net:
+    external: true

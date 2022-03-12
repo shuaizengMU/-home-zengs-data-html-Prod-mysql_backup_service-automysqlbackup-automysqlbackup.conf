@@ -1,0 +1,2 @@
+The automysqlbackup is used to back up the mysql database. 
+Before running the docker, please set the configuration (.automysqlbackup/automysqlbackup.conf).
